@@ -1,0 +1,14 @@
+.nav {
+    
+}
+.nav__list {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    background: #222432;
+    color: #fff;
+    justify-content: space-evenly;
+}
+.nav__list-item {
+    padding: .5rem 0;
+}
