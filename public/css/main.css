@@ -8,9 +8,55 @@ body {
   min-height: 100vh;
 }
 
+/* FOOTER */
+.footer {
+  text-align: center;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem .5rem;
+}
+
+.header__sitename {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.header__tool-link {
+  text-decoration: none;
+  color: black;
+  font-size: .8rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* NAVIGATION */
+.nav__list {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  background: #222432;
+  color: #fff;
+  justify-content: space-evenly;
+}
+
+.nav__list-item {
+  padding: .5rem 0;
+}
+
 .index-main {
   width: 94vw;
-  margin: 1rem auto 2rem; 
+  margin: 1rem auto 2rem;
   display: grid;
   grid-template-areas:
     "title"
@@ -122,9 +168,11 @@ body {
     row-gap: 2rem;
     column-gap: 2rem;
   }
+
   .hero {
     height: 40vh;
   }
+
   .hero-card__title {
     font-size: 1.1rem;
   }
@@ -136,7 +184,9 @@ body {
   .hero-card__button {
     font-size: 1rem;
   }
-  .upgrades__title, .reviews__title {
+
+  .upgrades__title,
+  .reviews__title {
     margin-bottom: 2rem;
   }
 }
