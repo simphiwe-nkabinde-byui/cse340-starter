@@ -109,6 +109,7 @@ body {
 
 .upgrades__item-link {
   font-size: .9rem;
+  color: black;
 }
 
 @media (min-width: 768px) {
