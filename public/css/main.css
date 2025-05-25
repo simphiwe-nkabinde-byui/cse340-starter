@@ -35,6 +35,19 @@ body {
 }
 
 @media (min-width: 768px) {
+  body {
+    background-image: url(/images/site/checkerboard.jpg);
+    background-size: contain;
+  }
+
+  #wrapper {
+    margin: 2rem 6rem;
+    padding: .5rem;
+    border-radius: 5px;
+    border: 2px solid #04b0d3;
+    background: #fff;
+  }
+
   .header {
     padding: 1.5rem 1rem;
   }
@@ -55,7 +68,7 @@ body {
 }
 
 .index-main {
-  width: 94vw;
+  width: 94%;
   margin: 1rem auto 2rem;
   display: grid;
   grid-template-areas:
@@ -160,7 +173,7 @@ body {
 
 @media (min-width: 768px) {
   .index-main {
-    width: 90vw;
+    width: 90%;
     grid-template-areas:
       "title title"
       "hero hero"
