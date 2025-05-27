@@ -67,6 +67,11 @@ body {
   padding: .5rem 0;
 }
 
+.nav__list-item>a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .index-main {
   width: 94%;
   margin: 1rem auto 2rem;
@@ -202,4 +207,31 @@ body {
   .reviews__title {
     margin-bottom: 2rem;
   }
+}
+
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  list-style: none;
+}
+
+#inv-display>li {
+  max-width: 350px;
+}
+
+#inv-display>li img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+#inv-display h2 {
+  font-size: 1rem;
+}
+#inv-display a {
+  text-decoration: none;
+  color: inherit;
+}
+#inv-display .namePrice {
+  color: #373737;
 }
