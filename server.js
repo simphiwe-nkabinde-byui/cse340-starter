@@ -13,6 +13,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/")
+const brokenController = require("./controllers/brokenController")
 
 
 /* ***********************
@@ -28,6 +29,7 @@ app.set('layout', './layouts/layout') // not at views root
 app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
+app.use("/ka-boom", utilities.handleErrors(brokenController.throwCustomError))
 app.use(async (req, res, next) => {
   next({status: 404, message: "Sorry, we appear to have lost that page."})
 })
@@ -44,7 +46,7 @@ app.use(async (err, req, res, next) => {
     message = err.message
   } else message = "Oh no! There was a crash. Maybe try a different route?"
   res.render("errors/error", {
-    title: err.status || "Server Error",
+    title: err.status || "500 Server Error",
     message,
     nav 
   })
