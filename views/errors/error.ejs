@@ -1,7 +1,11 @@
 <% if (title) { %>
-    <h1><%= title %></h1>
+    <h1 class="text-center"><%= title %></h1>
 <% } else {
       res.redirect('/')
 } %>
 
-<%- message %>
+<p class="text-center">
+    <%- message %>
+</p>
+
+<img class="error-img" src="/images/site/crash.webp" alt="">

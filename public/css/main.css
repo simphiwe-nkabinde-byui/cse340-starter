@@ -10,6 +10,10 @@ main>h1 {
   margin-bottom: 1.5rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 #wrapper {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
@@ -24,6 +28,10 @@ main>h1 {
   padding: .5rem;
   color: #fff;
   font-size: .7rem;
+}
+.footer a {
+  font-size: 1rem;
+  color: #ff746c;
 }
 
 /* HEADER */
@@ -187,6 +195,11 @@ main>h1 {
 .upgrades__item-link {
   font-size: .9rem;
   color: black;
+}
+
+.error-img {
+  opacity: 0.5;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
