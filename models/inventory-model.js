@@ -9,6 +9,9 @@ async function getClassifications() {
   );
 }
 
+/* ***************************
+ *  Get inventory by classification id
+ * ************************** */
 async function getInventoryByClassificationId(classification_id) {
   try {
     const data = await pool.query(
@@ -24,4 +27,20 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
-module.exports = { getClassifications, getInventoryByClassificationId };
+/* ***************************
+ *  Get inventory record by inventory id
+ * ************************** */
+async function getInventoryById(inventory_id) {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.inventory 
+      WHERE inv_id = $1`,
+      [inventory_id]
+    );
+    return data?.rows[0];
+  } catch (error) {
+    console.error("getinventorybyid error " + error);
+  }
+}
+
+module.exports = { getClassifications, getInventoryByClassificationId, getInventoryById };

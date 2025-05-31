@@ -19,4 +19,19 @@ invCont.buildByClassificationId = async function (req, res, next) {
   });
 };
 
+/* ***************************
+ *  Build inventory detail view
+ * ************************** */
+invCont.buildByInventoryId = async function (req, res, next) {
+  const inventory_id = req.params.inventoryId;
+  const data = await invModel.getInventoryById(inventory_id);
+  const detailBlock = await utilities.buildInventoryDetailBlock(data);
+  const nav = await utilities.getNav();
+  res.render("./inventory/detail", {
+    title: `${data.inv_year} ${data.inv_make} ${data.inv_model}`,
+    detailBlock,
+    nav
+  })
+};
+
 module.exports = invCont;
