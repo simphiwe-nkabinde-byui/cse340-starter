@@ -55,4 +55,32 @@ async function registerAccount(req, res) {
   }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount };
+/* ****************************************
+ *  Process Registration
+ * *************************************** */
+async function loginUser(req, res) {
+  let nav = await utilities.getNav();
+  const { account_email, account_password } = req.body;
+
+  const loginResult = await accountModel.loginUser(
+    account_email,
+    account_password
+  );
+
+  if (loginResult) {
+    req.flash(
+      "notice",
+      `Congratulations, you\'re registered ${account_firstname}. Please log in.`
+    );
+    res.redirect("/", { title: "Home", nav });
+  } else {
+    req.flash("notice", "Sorry, the login failed.");
+    res.status(501).render("account/login", {
+      title: "Registration",
+      nav,
+      errors: null,
+    });
+  }
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, loginUser };
