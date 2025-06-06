@@ -360,23 +360,33 @@ main>h1 {
   color: black;
 }
 
-#messages {
+#messages,
+#error-messages {
   margin-bottom: 1rem;
 
   ul {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    align-items: start;
   }
 
   ul>li {
     border-radius: 4px;
-    padding: 2px 5px;
-    display: inline-block;
-    margin-bottom: 5px;
+    padding: 1px 3px;
+    font-size: .7rem;
   }
 
   ul.notice>li {
     background: #cff4fc;
     border: 1px solid #9eeaf9;
     color: #055160;
+  }
+
+  ul.error>li {
+    background: #f8d7da;
+    border: 1px solid #f1aeb5;
+    color: #58151c;
   }
 }
