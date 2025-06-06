@@ -1,0 +1,18 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else { res.redirect('/') } %> <%# message() %>
+
+<form class="form" action="/account/register">
+    <label>First Name <input type="text" name="account_firstname" required></label>
+    <label>Last Name <input type="text" name="account_lastname" required></label>
+    <label>Email<input type="email" name="account_email" required></label>
+    <label>
+        Password
+        <input type="password" id="password" name="account_password" required>
+        <span id="password-display-toggle">show</span>
+    </label>
+    <input type="submit" value="Register">
+    <p class="text-center">Already have an account? <a href="/account/login">Login</a></p>
+</form>
+
+<script src="/js/script.js"></script>

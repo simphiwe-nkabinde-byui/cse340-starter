@@ -340,9 +340,11 @@ main>h1 {
   }
 }
 
-/* .form>label {
-  display: block;
+#password-display-toggle {
+  font-weight: normal;
   font-size: .8rem;
-  color: purple;
-  padding-top: .2rem;
-} */
+  background: #fff;
+  border-radius: 4px;
+  padding: 3px;
+  color: black;
+}
