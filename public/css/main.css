@@ -328,6 +328,11 @@ main>h1 {
     padding: .3rem;
   }
 
+  input:required:valid {
+    border-left-color: #8BC34A;
+    border-left-width: 4px;
+  }
+
   input[type=submit] {
     display: block;
     margin: 0 auto;
@@ -338,6 +343,12 @@ main>h1 {
   a {
     color: #fff;
   }
+}
+
+.input-info {
+  display: inline-block;
+  font-weight: normal;
+  font-size: .8rem;
 }
 
 #password-display-toggle {
