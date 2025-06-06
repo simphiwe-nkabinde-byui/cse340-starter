@@ -2,7 +2,9 @@
 <h1><%= title %></h1>
 <% } else { res.redirect('/') } %> <%# message() %>
 
-<form class="form" action="/account/register">
+<%- messages() %>
+
+<form class="form" action="/account/register" method="post">
     <label>First Name <input type="text" name="account_firstname" required></label>
     <label>Last Name <input type="text" name="account_lastname" required></label>
     <label>Email<input type="email" name="account_email" required></label>

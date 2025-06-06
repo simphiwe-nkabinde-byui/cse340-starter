@@ -1,6 +1,8 @@
 <% if (title) { %>
 <h1><%= title %></h1>
-<% } else { res.redirect('/') } %> <%# message() %>
+<% } else { res.redirect('/') } %> 
+
+<%- messages() %>
 
 <form class="form" action="/account/login">
     <label>Email<input type="email" name="account_email" required></label>

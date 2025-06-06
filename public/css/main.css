@@ -348,3 +348,24 @@ main>h1 {
   padding: 3px;
   color: black;
 }
+
+#messages {
+  margin-bottom: 1rem;
+
+  ul {
+    list-style: none;
+  }
+
+  ul>li {
+    border-radius: 4px;
+    padding: 2px 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  ul.notice>li {
+    background: #cff4fc;
+    border: 1px solid #9eeaf9;
+    color: #055160;
+  }
+}
