@@ -16,6 +16,7 @@ const utilities = require("./utilities/");
 const brokenController = require("./controllers/brokenController");
 const session = require("express-session");
 const pool = require("./database");
+const accountRoute = require("./routes/accountRoute");
 
 /* ***********************
  * View Engine and Templates
@@ -53,6 +54,7 @@ app.use(static);
 app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
 app.use("/ka-boom", utilities.handleErrors(brokenController.throwCustomError));
+app.use("/account", accountRoute);
 app.use(async (req, res, next) => {
   next({ status: 404, message: "Sorry, we appear to have lost that page." });
 });
