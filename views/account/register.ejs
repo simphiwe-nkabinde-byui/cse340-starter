@@ -16,8 +16,8 @@
 
 
 <form class="form" action="/account/register" method="post">
-  <label>First Name <input type="text" name="account_firstname" required value="<%= locals.account_firstname %>"/></label>
-  <label >Last Name <input type="text" name="account_lastname" required value="<%= locals.account_lastname %>"/></label>
+  <label>First Name <input type="text" name="account_firstname" required value="<%= locals.account_firstname %>"></label>
+  <label >Last Name <input type="text" name="account_lastname" required value="<%= locals.account_lastname %>"></label>
   <label>
     Email
     <input
@@ -26,7 +26,7 @@
       required
       value="<%= locals.account_email %>"
       placeholder="Enter a valid email address"
-  /></label>
+  ></label>
   <label>
     Password
     <span class="input-info"
@@ -39,10 +39,10 @@
       name="account_password"
       required
       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
-    />
+    >
     <span id="password-display-toggle">show</span>
   </label>
-  <input type="submit" value="Register" />
+  <input type="submit" value="Register" >
   <p class="text-center">
     Already have an account? <a href="/account/login">Login</a>
   </p>
