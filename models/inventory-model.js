@@ -43,4 +43,35 @@ async function getInventoryById(inventory_id) {
   }
 }
 
-module.exports = { getClassifications, getInventoryByClassificationId, getInventoryById };
+async function createClassification(classification_name) {
+  try {
+    const sql =
+      "INSERT INTO public.classification (classification_name ) VALUES ($1) RETURNING *";
+    return await pool.query(sql, [classification_name]);
+  } catch (error) {
+    return error.message;
+  }
+}
+
+async function createInventory(inventory) {
+  const fields = Object.keys(inventory);
+  try {
+    const sql = `INSERT INTO public.inventory (${fields.toString()}) VALUES (${fields
+      .map((f, i) => `$${i + 1}`)
+      .toString()}) RETURNING *`;
+    return await pool.query(
+      sql,
+      fields.map((f) => inventory[f])
+    );
+  } catch (error) {
+    return error.message;
+  }
+}
+
+module.exports = {
+  getClassifications,
+  getInventoryByClassificationId,
+  getInventoryById,
+  createClassification,
+  createInventory,
+};

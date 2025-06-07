@@ -319,7 +319,10 @@ main>h1 {
 
   input[type=text],
   input[type=password],
-  input[type=email] {
+  input[type=email],
+  input[type=number],
+  textarea,
+  select {
     display: block;
     width: 100%;
     border: 1px solid #000000;
@@ -343,6 +346,14 @@ main>h1 {
   a {
     color: #fff;
   }
+}
+
+.form--inventory {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  column-gap: 25px;
+  justify-content: space-evenly;
 }
 
 .input-info {

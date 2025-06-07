@@ -90,7 +90,7 @@ async function loginUser(req, res) {
       "notice",
       `Congratulations, you\'re registered ${account_firstname}. Please log in.`
     );
-    res.redirect("/", { title: "Home", nav });
+    res.redirect("/");
   } else {
     req.flash("notice", "Sorry, the login failed.");
     res.status(501).render("account/login", {
