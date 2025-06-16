@@ -69,7 +69,7 @@ async function createInventory(inventory) {
 }
 
 /* ***************************
- *  delete Inventory Data
+ *  Update Inventory item
  * ************************** */
 async function updateInventory(
   inv_id,
@@ -107,7 +107,7 @@ async function updateInventory(
 }
 
 /* ***************************
- *  Update Inventory Item
+ *  delete Inventory Item
  * ************************** */
 async function deleteInventoryItem(inv_id) {
   try {

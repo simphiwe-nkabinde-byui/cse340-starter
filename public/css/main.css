@@ -308,6 +308,7 @@ main>h1 {
   margin: 0 auto;
   max-width: 350px;
   box-shadow: 1px 1px 18px 4px #5d5d5d38;
+  margin-bottom: 3rem;
 
   label {
     color: #fff;
