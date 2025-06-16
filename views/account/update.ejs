@@ -1,0 +1,48 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else { res.redirect('/') } %> 
+
+<%- messages() %>
+
+<div id="error-messages">
+  <% if (errors) { %>
+  <ul class="error">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+
+<form class="form" action="/account/update" method="post" id="updateForm">
+    <div>
+        <label>First Name<input type="text" minlength="2" name="account_firstname" required value="<%= locals.account_firstname %>" ></label>
+        <label>Last Name<input type="text" minlength="2" name="account_lastname" required value="<%= locals.account_lastname %>" ></label>
+        <label>Email<input type="email" minlength="2" name="account_email" required value="<%= locals.account_email %>" ></label>
+        <input type="submit" value="Update" disabled >  
+        <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+    </div>
+</form>
+
+<form class="form" action="/account/update-password" method="post" id="updateForm">
+    <div>
+       <p>Entering a new password will change the current password.</p>
+        <label>
+            Password
+            <span class="input-info">
+                Passwords must be at least 12 characters and contain at least 1 number, 1
+                capital letter and 1 special character
+            </span>
+            <input
+            type="password"
+            id="password"
+            name="account_password"
+            required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+            >
+            <span id="password-display-toggle">show</span>
+        </label>
+        <input type="submit" value="Change password" disabled >  
+        <input type="hidden" name="account_id" value="<%= locals.account_id %>">
+    </div>
+</form>
