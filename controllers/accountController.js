@@ -161,7 +161,7 @@ async function accountLogin(req, res) {
 /* ****************************************
  *  Deliver account management view
  * *************************************** */
-async function buildAccountManagement(req, res, next) {
+async function buildManagement(req, res, next) {
   let nav = await utilities.getNav();
   res.render("account/management", {
     title: "Account Management",
@@ -176,5 +176,5 @@ module.exports = {
   registerAccount,
   loginUser,
   accountLogin,
-  buildAccountManagement,
+  buildManagement,
 };

@@ -1,8 +1,6 @@
 <% if (title) { %>
 <h1><%= title %></h1>
-<% } else { res.redirect('/') } %>
-
-<%- messages() %>
+<% } else { res.redirect('/') } %> <%- messages() %>
 
 <ul>
   <li>
@@ -12,3 +10,12 @@
     <a href="/inv/add-inventory">add new inventory</a>
   </li>
 </ul>
+
+<h2>Manage Inventory</h2>
+<p>
+  Select a classification below to view items belonging to the classification
+</p>
+<%- classificationSelect %>
+<table id="inventoryDisplay"></table>
+<noscript>JavaScript must be enabled to use this page.</noscript>
+<script src="../../js/inventory.js"></script>
