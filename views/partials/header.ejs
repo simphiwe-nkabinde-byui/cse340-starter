@@ -3,6 +3,11 @@
         CSE Motors
     </a>
     <div id="tools">
-        <a class="header__tool-link" href="/account/login" title="Click to log in">My Account</a>
+        <% if (locals.loggedin) { %>
+            <a class="header__tool-link" href="/account/management" title="Account Management">Welcome Basic</a>
+            <a class="header__tool-link" href="/account/logout" title="Click to log in">Logout</a>
+        <% } else { %>
+            <a class="header__tool-link" href="/account/login" title="Click to log in">My Account</a>
+        <% } %>
     </div>
 </header>

@@ -170,6 +170,11 @@ async function buildManagement(req, res, next) {
   });
 }
 
+async function logout(req, res) {
+  res.clearCookie("jwt");
+  return res.redirect("/account/login");
+}
+
 module.exports = {
   buildLogin,
   buildRegister,
@@ -177,4 +182,5 @@ module.exports = {
   loginUser,
   accountLogin,
   buildManagement,
+  logout
 };
