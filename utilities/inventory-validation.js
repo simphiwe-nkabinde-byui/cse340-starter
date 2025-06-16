@@ -73,6 +73,11 @@ validate.inventoryRules = () => {
       .notEmpty()
       .isLength({ min: 2 })
       .withMessage("Please provide a valid color"),
+    body("inv_id")
+      .trim()
+      .escape()
+      .isInt({ min: 1 })
+      .withMessage("invalid inventory id"),
   ];
 };
 
@@ -102,6 +107,24 @@ validate.checkInventoryData = async (req, res, next) => {
       title: "Add Inventory",
       classificationSelect,
       invValues: req.body,
+      nav,
+    });
+    return;
+  }
+  next();
+};
+
+validate.checkUpdateData = async (req, res, next) => {
+  let errors = [];
+  errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    const classificationSelect = await utilities.buildClassificationList(req.body?.classification_id);
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: `Edit ${req.body.inv_make} ${req.body.inv_model}`,
+      classificationSelect,
+      ...req.body,
       nav,
     });
     return;
