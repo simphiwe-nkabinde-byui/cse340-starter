@@ -73,11 +73,6 @@ validate.inventoryRules = () => {
       .notEmpty()
       .isLength({ min: 2 })
       .withMessage("Please provide a valid color"),
-    body("inv_id")
-      .trim()
-      .escape()
-      .isInt({ min: 1 })
-      .withMessage("invalid inventory id"),
   ];
 };
 
