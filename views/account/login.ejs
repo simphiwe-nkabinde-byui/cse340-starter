@@ -1,20 +1,18 @@
 <% if (title) { %>
 <h1><%= title %></h1>
-<% } else { res.redirect('/') } %> 
-
-<%- messages() %>
+<% } else { res.redirect('/') } %> <%- messages() %>
 
 <div id="error-messages">
-<% if (errors) { %>
+  <% if (errors) { %>
   <ul class="error">
- <% errors.array().forEach(error => { %>
-   <li><%= error.msg %></li>
-<%  }) %>
- </ul>
-<% } %>
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
 </div>
 
-<form class="form" action="/account/login" method="post">
+<form class="form" id="loginForm" action="/account/login" method="post">
   <label
     >Email<input
       type="email"
@@ -22,7 +20,7 @@
       required
       value="<%= locals.account_email %>"
       placeholder="Enter a valid email address"
-  ></label>
+  /></label>
   <label>
     Password
     <span class="input-info"
@@ -35,10 +33,10 @@
       name="account_password"
       required
       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
-    >
+    />
     <span id="password-display-toggle">show</span>
   </label>
-  <input type="submit" value="Login">
+  <input type="submit" value="Login" />
   <p class="text-center">No Account? <a href="/account/register">Sign-up</a></p>
 </form>
 

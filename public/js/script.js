@@ -1,5 +1,5 @@
 const passwordToggleBtn = document.querySelector("#password-display-toggle");
-passwordToggleBtn.addEventListener("click", function () {
+passwordToggleBtn?.addEventListener("click", function () {
   const passwordInput = document.querySelector("#password");
   const type = passwordInput.type;
   if (type == "password") {
