@@ -201,9 +201,24 @@ async function updateAccount(req, res, next) {
   );
 
   if (updateResult) {
-    res.locals.accountData.account_firstname = updateResult.account_firstname;
-    res.locals.accountData.account_lastname = updateResult.account_lastname;
-    res.locals.accountData.account_email = updateResult.account_email;
+    delete updateResult.account_password;
+    const accessToken = jwt.sign(
+      updateResult,
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: 3600 * 1000,
+      }
+    );
+    if (process.env.NODE_ENV === "development") {
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 });
+    } else {
+      res.cookie("jwt", accessToken, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 3600 * 1000,
+      });
+    }
+
     req.flash("notice", `Your account was successfully updated.`);
     res.redirect("/account/");
   } else {
