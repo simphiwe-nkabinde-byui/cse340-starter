@@ -4,4 +4,49 @@
       res.redirect('/')
 } %>
 
+<%- messages() %>
+
+<div id="error-messages">
+  <% if (errors) { %>
+  <ul class="error">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+
 <%- detailBlock%>
+
+<section class="reviews">
+    <h2>Reviews</h2>
+    <% if (locals.loggedin) { %>
+        <form class="form--review" action="/review/add-review" method="post">
+            <label>Rating<input required type="number" name="review_rating" min="1" max="5"></label>
+            <textarea required name="review_message" placeholder="Add your review" rows="1"></textarea>
+            <input type="hidden" name="account_id" value="<%= locals.accountData.account_id %>">
+            <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+            <input type="submit">
+        </form>
+    <% } else { %>
+        <p> <a href="/account/login">Login</a> to add a review</p>
+   <% } %>
+   <% if (!reviews.length) { %>
+    <p>No reviews yet</p>
+    <% } %>
+    <div class="reviews-summary">
+        <ul class="review-list">
+            <% reviews.forEach(reviewItem => { %>
+                <li class="review-item">
+                    <div class="rating">
+                        <% for (let i = 0; i < reviewItem.review_rating; i++) { %>
+                            <img src="/images/site/star.png" alt="star">
+                        <% } %> 
+                    </div>
+                    <p class="username"><%= reviewItem.account_firstname + " " + reviewItem.account_lastname %></p>
+                    <p class="message"><%= reviewItem.review_message %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</section>

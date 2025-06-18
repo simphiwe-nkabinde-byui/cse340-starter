@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model");
+const reviewModel = require("../models/review-model");
 const utilities = require("../utilities/");
 
 const invCont = {};
@@ -24,6 +25,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 invCont.buildByInventoryId = async function (req, res, next) {
   const inventory_id = req.params.inventoryId;
+  const reviews = await reviewModel.getReviewsByInventoryId(inventory_id);
   const data = await invModel.getInventoryById(inventory_id);
   const detailBlock = await utilities.buildInventoryDetailBlock(data);
   const nav = await utilities.getNav();
@@ -31,6 +33,9 @@ invCont.buildByInventoryId = async function (req, res, next) {
     title: `${data.inv_year} ${data.inv_make} ${data.inv_model}`,
     detailBlock,
     nav,
+    inv_id: data.inv_id,
+    errors: null,
+    reviews,
   });
 };
 

@@ -17,6 +17,7 @@ const brokenController = require("./controllers/brokenController");
 const session = require("express-session");
 const pool = require("./database");
 const accountRoute = require("./routes/accountRoute");
+const reviewRoute = require("./routes/reviewRoute");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
@@ -59,6 +60,7 @@ app.use(utilities.checkJWTToken);
 app.use(static);
 app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use("/inv", inventoryRoute);
+app.use("/review", reviewRoute);
 app.use("/ka-boom", utilities.handleErrors(brokenController.throwCustomError));
 app.use("/account", accountRoute);
 app.use(async (req, res, next) => {

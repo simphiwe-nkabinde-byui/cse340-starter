@@ -147,16 +147,17 @@ main>h1 {
   font-size: .8rem;
 }
 
-.reviews {
+.index-main .reviews {
+  max-width: 500px;
   grid-area: reviews;
 }
 
-.reviews__title {
+.index-main .reviews__title {
   margin-bottom: .5rem;
   font-size: 1.2rem;
 }
 
-.reviews__list {
+.index-main .reviews__list {
   padding-left: 1rem;
   font-size: .8rem;
   display: flex;
@@ -231,7 +232,7 @@ main>h1 {
   }
 
   .upgrades__title,
-  .reviews__title {
+  .index-main .reviews__title {
     margin-bottom: 2rem;
   }
 }
@@ -271,6 +272,7 @@ main>h1 {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .inventory-item-details>section {
@@ -356,6 +358,21 @@ main>h1 {
   justify-content: space-evenly;
 }
 
+.form--review {
+  margin: 0 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: .3rem;
+}
+
+.form--review input[type=submit] {
+  margin-left: auto;
+}
+
+.form--review textarea {
+  width: 100%;
+}
+
 .input-info {
   display: inline-block;
   font-weight: normal;
@@ -399,5 +416,40 @@ main>h1 {
     background: #f8d7da;
     border: 1px solid #f1aeb5;
     color: #58151c;
+  }
+}
+
+.reviews {
+  max-width: 500px;
+}
+
+.review-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+}
+
+.review-item {
+  border-bottom: 1px solid grey;
+  padding: .5rem;
+
+  .rating {
+    display: flex;
+    column-gap: 5px;
+  }
+
+  .rating>img {
+    width: 1rem;
+    height: auto;
+  }
+
+  .username {
+    font-weight: bold;
+    font-size: .8rem;
+    text-transform: capitalize;
+  }
+
+  .message {
+    font-size: 1rem;
   }
 }
